@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DisplayNews from './displayNews';
 import Profile from './profile';
 import { Route } from 'react-router-dom';
+import NewsFeed from './newsfeed';
 
 class UserProfile extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class UserProfile extends Component {
     this.state = {
       user: [{
         avatarname: '',
-        chosenArticles: '',
+        chosenArticles: [],
         avarphoto: ''
       }],
       apiDataLoaded: false
@@ -28,6 +29,8 @@ class UserProfile extends Component {
     this.setState({
       user: updatedUser
     })
+
+    console.log(this.state.user.chosenArticles)
   }
 
   fuck = () => {
@@ -42,7 +45,10 @@ class UserProfile extends Component {
     return (
       <div>
         <Profile />
-        {this.state.user.chosenArticles && this.state.user.chosenArticles.map(article => <p>{article.title}</p>)}
+        <NewsFeed
+        chosenArticles={this.state.user.chosenArticles}
+        />
+
         
       </div>
 
@@ -66,5 +72,8 @@ export default UserProfile;
 //     user: updatedUser
 //   })
 //   console.log(this.state.user.chosenArticles)
+
+
+//{this.state.user.chosenArticles && this.state.user.chosenArticles.map(article => <p>{article.title}</p>)}
 // }
 
