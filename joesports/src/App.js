@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getNews } from './services/api-helper';
 
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -47,6 +48,11 @@ class App extends React.Component {
         }
       ],
       articles: [],
+      user: [{
+        avatarname: '',
+        chosenArticles: '',
+        avarphoto: ''
+      }],
       apiDataLoaded: false
     }
   }
@@ -54,17 +60,27 @@ class App extends React.Component {
 
   onChange = async (e) => {
     const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${e}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
-    this.setState({
-      articles: response
-    })
 
+    this.setState({
+      articles: [...this.state.articles, response]
+    })
     console.log(this.state.articles)
 
 
   }
 
   onSubmit = async (e) => {
+    e.preventDefault();
+    const newArticle = this.state.articles;
+    const accessUser = this.state.user;
+    accessUser.chosenArticles = newArticle;
+    const updatedUser = { ...accessUser, chosenArticles: newArticle }
 
+    this.setState({
+      user: updatedUser
+    })
+
+    console.log(this.state.user.chosenArticles)
   }
 
 
@@ -81,10 +97,12 @@ class App extends React.Component {
               news =>
                 <input
                   type="button"
-                  onChange={() => { this.onChange(news.name) }}
+                  onClick={() => { this.onChange(news.name) }}
                   value={news.display}
                 />
             )}
+            <input type="submit"
+              value="done" />
           </form>
 
         </div>
