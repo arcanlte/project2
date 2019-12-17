@@ -11,35 +11,43 @@ class DisplayNews extends Component {
       news: [
         {
           name: 'espn',
-          display: 'ESPN'
+          display: 'ESPN',
+          image: 'images/espn.png'
         },
         {
           name: 'cnn',
-          display: 'CNN'
+          display: 'CNN',
+          image: 'images/cnn.png'
         },
         {
           name: 'engadget',
-          display: 'engadget'
+          display: 'engadget',
+          image: 'images/engadget.png'
         },
         {
           name: 'the-washington-post',
-          display: 'TheWashingtonPost'
+          display: 'TheWashingtonPost',
+          image: 'images/the-wasington-post.png'
         },
         {
           name: 'cnbc',
-          display: 'CNBC'
+          display: 'CNBC',
+          image: 'images/cnbc.png'
         },
         {
           name: "the-wall-street-journal",
-          display: 'TheWashingtonPost'
+          display: 'TheWashingtonPost',
+          image: 'images/the-wall-street-journal.png'
         },
         {
           name: 'al-jazeera-english',
-          display: 'AlJazeera'
+          display: 'AlJazeera',
+          image: 'images/al-jazeera-english.png'
         },
         {
           name: 'the-new-york-times',
-          display: 'The New York Times'
+          display: 'The New York Times',
+          image: 'images/the-new-york-times.png'
         }
       ],
       articles: []
@@ -64,11 +72,10 @@ class DisplayNews extends Component {
         <form className="optionContainer" onSubmit={this.onSubmit}>
           {this.state.news.map(
             news =>
-              <input
-                type="button"
+              <img
+                src={news.image}
                 className="theCompany"
                 onClick={() => { this.onChange(news.name) }}
-                value={news.display}
               />
           )}
           <Link to="/userProfile">
