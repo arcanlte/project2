@@ -12,8 +12,7 @@ class UserProfile extends Component {
         articleName: [],
         chosenArticles: [],
         avarphoto: ''
-      }],
-      apiDataLoaded: false
+      }]
     }
   }
 
