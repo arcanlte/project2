@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import UserProfile from './userProfile';
+import './../App.css';
 
 class DisplayNews extends Component {
   constructor(props) {
@@ -15,10 +16,6 @@ class DisplayNews extends Component {
         {
           name: 'cnn',
           display: 'CNN'
-        },
-        {
-          name: 'crypto-coins-news',
-          display: 'CRYPTONEWS'
         },
         {
           name: 'engadget',
@@ -55,6 +52,7 @@ class DisplayNews extends Component {
     this.setState({
       articles: [...this.state.articles, ...response.data.articles]
     })
+    console.log({ ...this.state.news[0].display })
   }
 
 
@@ -63,11 +61,12 @@ class DisplayNews extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form className="optionContainer" onSubmit={this.onSubmit}>
           {this.state.news.map(
             news =>
               <input
                 type="button"
+                className="theCompany"
                 onClick={() => { this.onChange(news.name) }}
                 value={news.display}
               />
@@ -82,7 +81,7 @@ class DisplayNews extends Component {
               return (
                 <UserProfile
                   articles={this.state.articles}
-                  articleName={this.state.news.name}
+                  articleName={this.state.news.display}
                 />
               )
             }} />

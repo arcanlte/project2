@@ -1,6 +1,7 @@
 import React from 'react';
 import DisplayNews from './components/displayNews';
 import { Route, Link } from 'react-router-dom';
+import './App.css';
 
 
 

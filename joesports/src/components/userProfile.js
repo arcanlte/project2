@@ -27,13 +27,18 @@ class UserProfile extends Component {
     const accessUser = this.state.user;
     accessUser.chosenArticles = newArticle;
     accessUser.articleName = displayName
+    console.log(displayName)
     const updatedUser = { ...accessUser, chosenArticles: newArticle }
     this.setState({
       user: updatedUser
     })
+    this.setState({
+      user: { ...accessUser, articleName: displayName }
+    })
 
 
     console.log(this.state.user.chosenArticles)
+
   }
 
 
