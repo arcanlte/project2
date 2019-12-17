@@ -9,7 +9,7 @@ class UserProfile extends Component {
     super(props);
     this.state = {
       user: [{
-        avatarname: '',
+        articleName: [],
         chosenArticles: [],
         avarphoto: ''
       }],
@@ -23,21 +23,18 @@ class UserProfile extends Component {
   componentDidMount(e) {
     console.log("THIS IS A CHOSEN ARTICLE")
     const newArticle = this.props.articles;
+    const displayName = this.props.articleName;
     const accessUser = this.state.user;
     accessUser.chosenArticles = newArticle;
+    accessUser.articleName = displayName
     const updatedUser = { ...accessUser, chosenArticles: newArticle }
     this.setState({
       user: updatedUser
     })
 
+
     console.log(this.state.user.chosenArticles)
   }
-
-  fuck = () => {
-    console.log(this.props.articles)
-  }
-
-
 
 
 
@@ -46,10 +43,11 @@ class UserProfile extends Component {
       <div>
         <Profile />
         <NewsFeed
-        chosenArticles={this.state.user.chosenArticles}
+          chosenArticles={this.state.user.chosenArticles}
+          articleName={this.state.user.articleName}
         />
 
-        
+
       </div>
 
     )

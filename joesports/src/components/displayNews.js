@@ -51,25 +51,13 @@ class DisplayNews extends Component {
 
   onChange = async (newsSource) => {
     const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
+    console.log(response)
     this.setState({
       articles: [...this.state.articles, ...response.data.articles]
     })
   }
 
 
-  // onSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log("THIS IS A CHOSEN ARTICLE")
-  //   const newArticle = this.state.articles;
-  //   const accessUser = this.props.user;
-  //   accessUser.chosenArticles = newArticle;
-  //   const updatedUser = { ...accessUser, chosenArticles: newArticle }
-
-  //   this.setState({
-  //     user: updatedUser
-  //   })
-  //   console.log(this.state.user.chosenArticles)
-  // }
 
 
   render() {
@@ -94,6 +82,7 @@ class DisplayNews extends Component {
               return (
                 <UserProfile
                   articles={this.state.articles}
+                  articleName={this.state.news.name}
                 />
               )
             }} />
