@@ -72,11 +72,9 @@ class DisplayNews extends Component {
 
   async componentDidMount() {
     const main = this.state.news;
-    console.log(this.state.news.length)
     for (let i = 0; i < this.state.news.length - 4; i++) {
       newImage = main[i].name;
       const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newImage}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
-      console.log(recall.data.articles)
       //   // const passTo = response.data.articles.map(image => image.urlToImage && [...this.state.backgroundImages, image.urlToImage])
       //   passTo.push(response.data.articles[i].urlToImage)
       //   console.log(response.data.articles)
@@ -99,10 +97,8 @@ class DisplayNews extends Component {
 
   onChange = async (newsSource) => {
     const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
-    console.log(response)
     const newsCopy = this.state.news.map(item => (item.name === newsSource) ?
       { ...item, isClicked: !item.isClicked } : item)
-    console.log(newsCopy)
 
     this.setState({
       news: newsCopy,
@@ -116,6 +112,7 @@ class DisplayNews extends Component {
     this.setState({
       isLoggedIn: false
     })
+    
   }
 
 

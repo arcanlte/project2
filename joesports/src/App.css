@@ -41,6 +41,7 @@ body{
   margin-right:auto;
   font-style: normal;
   border-radius: 20px;
+  transform: translate(0%, 20px);
 }
 
 .header{

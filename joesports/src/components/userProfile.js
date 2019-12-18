@@ -19,13 +19,11 @@ class UserProfile extends Component {
 
 
   componentDidMount(e) {
-    console.log("THIS IS A CHOSEN ARTICLE")
     const newArticle = this.props.articles;
     const displayName = this.props.articleName;
     const accessUser = this.state.user;
     accessUser.chosenArticles = newArticle;
     accessUser.articleName = displayName
-    console.log(displayName)
     const updatedUser = { ...accessUser, chosenArticles: newArticle }
     this.setState({
       user: updatedUser
@@ -34,8 +32,6 @@ class UserProfile extends Component {
       user: { ...accessUser, articleName: displayName }
     })
 
-
-    console.log(this.state.user.chosenArticles)
 
   }
 

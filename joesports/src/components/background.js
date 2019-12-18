@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Background(props) {
-  console.log(props.backgroundImages)
   return (
     <div className="newsBackground">
       {props.backgroundImages.map(image =>

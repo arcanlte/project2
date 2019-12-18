@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NewsFeed = (props) => {
-
   return (
     <div>
       {/* {props.articleName.map(article => <p>{article}</p>)} */}
