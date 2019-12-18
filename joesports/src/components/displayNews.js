@@ -124,7 +124,9 @@ class DisplayNews extends Component {
         <Background backgroundImages={this.state.backgroundImages} />
         <Header />
         <div className="optionContainer">
-          <form className="boxContainer" onSubmit={this.onSubmit}>
+          <form
+            className={(this.state.isLoggedIn)? "boxContainer": "contentContained" }
+            onSubmit={this.onSubmit}>
             {this.state.news.map(
               news =>
                 <div className="box" >
@@ -138,7 +140,9 @@ class DisplayNews extends Component {
                 </div>
             )}
             <Link to="/userProfile">
-              <button id="done" onClick={() => { this.onClick() }}>DONE</button>
+              {this.state.isLoggedIn &&
+                <button id="done" onClick={() => { this.onClick() }}>DONE</button>
+              }
             </Link>
             <Route
               path="/userProfile"
@@ -147,6 +151,7 @@ class DisplayNews extends Component {
                   <UserProfile
                     articles={this.state.articles}
                     articleName={this.state.news.display}
+                    isLoggedIn={this.state.isLoggedIn}
                   />
                 )
               }} />

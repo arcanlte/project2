@@ -10,7 +10,7 @@ class UserProfile extends Component {
       user: [{
         articleName: [],
         chosenArticles: [],
-        avarphoto: ''
+        isLoggedIn: ''
       }]
     }
   }
@@ -21,15 +21,20 @@ class UserProfile extends Component {
   componentDidMount(e) {
     const newArticle = this.props.articles;
     const displayName = this.props.articleName;
+    const willBeLoggedIn = this.props.isLoggedIn
     const accessUser = this.state.user;
     accessUser.chosenArticles = newArticle;
-    accessUser.articleName = displayName
+    accessUser.isLoggedIn = willBeLoggedIn;
+    accessUser.articleName = displayName;
     const updatedUser = { ...accessUser, chosenArticles: newArticle }
     this.setState({
       user: updatedUser
     })
     this.setState({
       user: { ...accessUser, articleName: displayName }
+    })
+    this.setState({
+      user: { ...accessUser, articleName: willBeLoggedIn }
     })
 
 
@@ -43,6 +48,7 @@ class UserProfile extends Component {
         <NewsFeed
           chosenArticles={this.state.user.chosenArticles}
           articleName={this.state.user.articleName}
+          isLoggedIn={this.state.user.isLoggedIn}
         />
 
 

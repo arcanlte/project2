@@ -9,13 +9,20 @@ body{
   min-height: 50px;
   width: 60%;
   transform: translate(30%, 20px);
-  margin-top: -1450px;
+  margin-top: -1490px;
   
 }
 
 .boxContainer{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 0px 0px;
+  align-content: baseline;
+}
+
+.contentContained{
+  display: grid;
+  grid-template-columns: 1fr;
   grid-gap: 0px 0px;
   align-content: baseline;
 }
@@ -55,7 +62,7 @@ body{
   font-size: 36pt;
   font-weight: bold;
   letter-spacing: 5px;
-  transform: translate(0, -1430px);
+  transform: translate(0, -1470px);
   align-content: baseline;
   height: 150px;
 }
@@ -73,11 +80,19 @@ body{
   grid-template-columns: repeat(4, 25vw);
   grid-template-rows: repeat(5, 20vh);
   object-fit: cover;
+  background-repeat: repeat;
 }
 
 .imageBackground{
   width: 100%;
 }
+
+.imageContent{
+  grid-template-columns: (2 25vw);
+  width: 95%;
+}
+
+
 
 /* .box{
   object-fit: contain;
