@@ -12,10 +12,10 @@ body{
   margin-top: 50px;
   height: 900px;
   width: 60%;
-  margin-left: auto;
-  margin-right:auto;
   border-radius: 20px;
   grid-gap: 15px 5px;
+  transform: translate(30%, -120px);
+  margin-top: -1450px;
 }
 
 .theCompany{
@@ -46,17 +46,30 @@ body{
 
 .header{
   padding-top: 50px;
-  color: white;
+  color: red;
   text-align: center;
   font-size: 24pt;
   font-weight: bold;
   letter-spacing: 2px;
+  transform: translate(0, -1600px);
 }
 
-.theCompany:hover {
+/* .theCompany:hover {
   background-color: green;
 }
 
 .theCompany:visited {
   background-color: green;
+} */
+
+.newsBackground{
+  display:grid;
+  grid-template-columns: repeat(7, 25vw);
+  grid-template-rows: repeat(5, 20vh);
+  object-fit: cover;
+}
+
+.imageBackground{
+
+  width: 100%;
 }

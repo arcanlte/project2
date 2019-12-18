@@ -3,9 +3,9 @@ import React from 'react';
 function Background(props) {
   console.log(props.backgroundImages)
   return (
-    <div>
+    <div className="newsBackground">
       {props.backgroundImages.map(image =>
-        < img src={image} />
+        < img className="imageBackground" src={image} />
       )}
     </div>
   )

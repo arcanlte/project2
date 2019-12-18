@@ -4,6 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import UserProfile from './userProfile';
 import './../App.css';
 import Background from './background';
+import Header from './header';
 
 let newImage = 0;
 let passTo = [];
@@ -124,6 +125,7 @@ class DisplayNews extends Component {
     return (
       <div className="background">
         <Background backgroundImages={this.state.backgroundImages} />
+        <Header />
         <form onSubmit={this.onSubmit}>
           <div className="optionContainer">
             {this.state.news.map(
