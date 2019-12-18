@@ -73,7 +73,7 @@ class DisplayNews extends Component {
   async componentDidMount() {
     const main = this.state.news;
     console.log(this.state.news.length)
-    for (let i = 0; i < this.state.news.length - 1; i++) {
+    for (let i = 0; i < this.state.news.length - 4; i++) {
       newImage = main[i].name;
       const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newImage}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
       console.log(recall.data.articles)
