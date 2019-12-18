@@ -1,18 +1,20 @@
 import React from 'react';
 
+let i = 0;
 const NewsFeed = (props) => {
+
+  console.log(props.chosenArticles);
   return (
     <div>
-      {/* {props.articleName.map(article => <p>{article}</p>)} */}
       {props.chosenArticles && props.chosenArticles.map((article, key) =>
-        <div key={key}>
-          <h2>{article.source.name}</h2>
+        <div className="newBox" key={key}>
+          {article[i] && <h2>{article.source.name}</h2>}
           <a href={article.url}>
             <img className="imageContent" src={article.urlToImage} alt="image source" />
           </a>
-          <h3>{article.title}</h3>
+          {/* <h3>{article.title}</h3>
           <p>{article.description}</p>
-          <p>{article.content}</p>
+          <p>{article.content}</p> */}
         </div>
       )}
 

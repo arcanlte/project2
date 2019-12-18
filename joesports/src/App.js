@@ -10,6 +10,7 @@ function App() {
 
   return (
     <div className="app">
+      <Header />
       <DisplayNews />
       <Link to="/">
         <li>home</li>

@@ -72,7 +72,7 @@ class DisplayNews extends Component {
 
   async componentDidMount() {
     const main = this.state.news;
-    for (let i = 0; i < this.state.news.length - 4; i++) {
+    for (let i = 0; i < this.state.news.length - 3; i++) {
       newImage = main[i].name;
       const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newImage}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
       //   // const passTo = response.data.articles.map(image => image.urlToImage && [...this.state.backgroundImages, image.urlToImage])
@@ -120,12 +120,12 @@ class DisplayNews extends Component {
 
   render() {
     return (
-      <div>
-        <Background backgroundImages={this.state.backgroundImages} />
-        <Header />
+      <div className="newsBackground">
+        {this.state.backgroundImages.map(image =>
+          <img className="backgroundImage" src={image} />)} />
         <div className="optionContainer">
           <form
-            className={(this.state.isLoggedIn)? "boxContainer": "contentContained" }
+            className={(this.state.isLoggedIn) ? "boxContainer" : "contentContained"}
             onSubmit={this.onSubmit}>
             {this.state.news.map(
               news =>

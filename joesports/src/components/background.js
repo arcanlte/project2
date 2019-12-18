@@ -2,12 +2,10 @@ import React from 'react';
 
 function Background(props) {
   return (
-    <div className="background">
-      <div className="newsBackground">
+      <div>
         {props.backgroundImages.map(image =>
           < img className="imageBackground" src={image} />
         )}
-      </div>
     </div>
   )
 
