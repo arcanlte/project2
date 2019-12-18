@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DisplayNews from './displayNews';
-import Profile from './profile';
 import { Route } from 'react-router-dom';
 import NewsFeed from './newsfeed';
 
@@ -45,7 +44,6 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        <Profile />
         <NewsFeed
           chosenArticles={this.state.user.chosenArticles}
           articleName={this.state.user.articleName}
