@@ -112,7 +112,7 @@ class DisplayNews extends Component {
     this.setState({
       isLoggedIn: false
     })
-    
+
   }
 
 
@@ -120,11 +120,11 @@ class DisplayNews extends Component {
 
   render() {
     return (
-      <div className="background">
+      <div>
         <Background backgroundImages={this.state.backgroundImages} />
         <Header />
-        <form onSubmit={this.onSubmit}>
-          <div className="optionContainer">
+        <div className="optionContainer">
+          <form className="boxContainer" onSubmit={this.onSubmit}>
             {this.state.news.map(
               news =>
                 <div className="box" >
@@ -137,22 +137,22 @@ class DisplayNews extends Component {
                   }
                 </div>
             )}
-          </div>
-          <Link to="/userProfile">
-            <button id="done" onClick={() => { this.onClick() }}>DONE</button>
-          </Link>
-          <Route
-            path="/userProfile"
-            render={(props) => {
-              return (
-                <UserProfile
-                  articles={this.state.articles}
-                  articleName={this.state.news.display}
-                />
-              )
-            }} />
+            <Link to="/userProfile">
+              <button id="done" onClick={() => { this.onClick() }}>DONE</button>
+            </Link>
+            <Route
+              path="/userProfile"
+              render={(props) => {
+                return (
+                  <UserProfile
+                    articles={this.state.articles}
+                    articleName={this.state.news.display}
+                  />
+                )
+              }} />
 
-        </form>
+          </form>
+        </div>
       </div>
     )
   }

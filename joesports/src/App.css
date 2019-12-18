@@ -3,18 +3,21 @@ body{
 }
 
 .optionContainer{
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto ;
-  align-content: baseline;
   padding: 20px;
   background-color: rgba(255,255,255);
   margin-top: 50px;
-  height: 900px;
+  min-height: 50px;
   width: 60%;
-  grid-gap: 15px 5px;
   transform: translate(30%, 20px);
   margin-top: -1450px;
+  
+}
+
+.boxContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px 0px;
+  align-content: baseline;
 }
 
 .theCompany{
@@ -22,13 +25,13 @@ body{
   padding-top: 20px;
   height: 160px;
   width: 400px;
-  object-fit: cover;
   cursor: pointer;
 }
 
 .clickedCompany {
   object-fit: contain;
 }
+
 
 #done{
   height: 20%;
@@ -75,3 +78,7 @@ body{
 .imageBackground{
   width: 100%;
 }
+
+/* .box{
+  object-fit: contain;
+} */
