@@ -17,8 +17,8 @@ class UserProfile extends Component {
 
 
 
-
   componentDidMount(e) {
+    console.log("I AM HEREEEE!")
     const newArticle = this.props.articles;
     const displayName = this.props.articleName;
     const willBeLoggedIn = this.props.isLoggedIn
@@ -37,7 +37,6 @@ class UserProfile extends Component {
       user: { ...accessUser, articleName: willBeLoggedIn }
     })
 
-
   }
 
 
@@ -50,8 +49,6 @@ class UserProfile extends Component {
           articleName={this.state.user.articleName}
           isLoggedIn={this.state.user.isLoggedIn}
         />
-
-
       </div>
 
     )
@@ -63,19 +60,4 @@ export default UserProfile;
 
 
 
-// onSubmit = (e) => {
-//   console.log("THIS IS A CHOSEN ARTICLE")
-//   const newArticle = this.props.articles;
-//   const accessUser = this.state.user;
-//   accessUser.chosenArticles = newArticle;
-//   const updatedUser = { ...accessUser, chosenArticles: newArticle }
-
-//   this.setState({
-//     user: updatedUser
-//   })
-//   console.log(this.state.user.chosenArticles)
-
-
-//{this.state.user.chosenArticles && this.state.user.chosenArticles.map(article => <p>{article.title}</p>)}
-// }
 

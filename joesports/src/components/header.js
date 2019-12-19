@@ -1,9 +1,12 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 
 function Header() {
   return (
     <div className="header">
-      JOE HEADLINES
+      <Link to="/displayNews">
+        JOE HEADLINES
+      </Link>
     </div>
   )
 }

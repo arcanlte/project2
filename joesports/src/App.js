@@ -11,12 +11,8 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <DisplayNews />
-      <Link to="/">
-        <li>home</li>
-      </Link>
       <Route exact path="/displayNews" component={DisplayNews} />
-
+      <DisplayNews />
     </div>
   );
 }

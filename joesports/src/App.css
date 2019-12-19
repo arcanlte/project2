@@ -1,14 +1,17 @@
 body{
   justify-content: center;
+  background-color: rgba(0,0,0);
 }
 .optionContainer{
   padding: 20px;
   background-color:white;
   margin-top: 50px;
-  height: 900px;
+  height: 1300px;
   width: 900px;
-  margin-left: -100px;
-  margin-top: -1390px;
+  margin-left: 200px;
+  margin-top: -1431px;
+  overflow: scroll;
+  border: solid;
 }
 
 .boxContainer{
@@ -23,6 +26,8 @@ body{
   grid-template-columns: 1fr;
   grid-gap: 0px 0px;
   align-content: baseline;
+  min-height: 100px;
+
 }
 
 .theCompany{
@@ -54,7 +59,7 @@ body{
 
 .header{
   padding-top: 60px;
-  background-color: rgba(0,0,0);
+  background-color: rgba(0,0,0,);
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -78,8 +83,10 @@ body{
 .newsBackground{
   display:grid;
   grid-template-columns: repeat(4, 25vw);
-  grid-template-rows: repeat(5, 20vh);
+  grid-template-rows: repeat(4, 20vh);
   object-fit: cover;
+  width: 300px;
+
 }
 
 .backgroundImage{

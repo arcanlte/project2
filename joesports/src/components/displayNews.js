@@ -72,38 +72,35 @@ class DisplayNews extends Component {
 
   async componentDidMount() {
     const main = this.state.news;
-    for (let i = 0; i < this.state.news.length - 3; i++) {
+    for (let i = 0; i < this.state.news.length - 4; i++) {
       newImage = main[i].name;
       const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newImage}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
-      //   // const passTo = response.data.articles.map(image => image.urlToImage && [...this.state.backgroundImages, image.urlToImage])
-      //   passTo.push(response.data.articles[i].urlToImage)
-      //   console.log(response.data.articles)
-
-      //   this.setState({
-      //     backgroundImages: passTo
-      //   })
-      // }
-      // const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=engadget&apiKey=ee20649b69c44ceebde93d742bf5b536`)
       passTo = recall.data.articles.map(article =>
         article.urlToImage)
       this.setState({
         backgroundImages: [...this.state.backgroundImages, ...passTo]
       })
     }
-
+    this.setState({
+      articles: ''
+    })
+    console.log(main)
   }
 
 
 
-  onChange = async (newsSource) => {
+  onChange = async (isClicked,newsSource) => {
     const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
     const newsCopy = this.state.news.map(item => (item.name === newsSource) ?
       { ...item, isClicked: !item.isClicked } : item)
-
-    this.setState({
-      news: newsCopy,
-      articles: [...this.state.articles, ...response.data.articles]
-    })
+    console.log(isClicked)
+    {
+    !(isClicked) &&
+      this.setState({
+        news: newsCopy,
+        articles: [...this.state.articles, ...response.data.articles]
+      })
+    }
 
     //console.log({ ...this.state.news[0].display })
   }
@@ -111,8 +108,9 @@ class DisplayNews extends Component {
   onClick = () => {
     this.setState({
       isLoggedIn: false
+      
     })
-
+    console.log("I AM HEREEEE AT DISPLAY!")
   }
 
 
@@ -122,7 +120,7 @@ class DisplayNews extends Component {
     return (
       <div className="newsBackground">
         {this.state.backgroundImages.map(image =>
-          <img className="backgroundImage" src={image} />)} />
+          <img className="backgroundImage" src={image} />)}
         <div className="optionContainer">
           <form
             className={(this.state.isLoggedIn) ? "boxContainer" : "contentContained"}
@@ -134,7 +132,7 @@ class DisplayNews extends Component {
                     <img
                       src={news.image}
                       className={(news.isClicked) ? "clickedCompany theCompany" : "theCompany"}
-                      onClick={() => { this.onChange(news.name) }}
+                      onClick={() => { this.onChange(news.isClicked,news.name) }}
                     />
                   }
                 </div>
