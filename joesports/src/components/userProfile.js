@@ -62,8 +62,3 @@ class UserProfile extends Component {
 }
 
 export default UserProfile;
-
-
-
-
-

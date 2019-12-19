@@ -2,7 +2,7 @@ import React from 'react';
 
 let i = 0;
 const NewsFeed = (props) => {
-
+  console.log("I AM HERE")
   return (
     <div>
       {props.chosenArticles && props.chosenArticles.map((article, key) =>
@@ -27,6 +27,3 @@ const NewsFeed = (props) => {
 }
 
 export default NewsFeed;
-
-//{this.state.user.chosenArticles && this.state.user.chosenArticles.map(article => <p>{article.title}</p>)}
-// }

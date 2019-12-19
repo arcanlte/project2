@@ -24,7 +24,7 @@ class Header extends Component {
         <DisplayNews
           value={this.state.vaue}
         />
-        {/* <Route
+        <Route
           path="/displayNews"
           render={
             () => {
@@ -34,7 +34,7 @@ class Header extends Component {
               )
             }
           }
-        /> */}
+        />
 
 
       </div>

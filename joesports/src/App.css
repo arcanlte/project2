@@ -5,10 +5,10 @@ body{
 .optionContainer{
   padding: 20px;
   background-color:white;
-  height: 1300px;
+  min-height: 900px;
   width: 900px;
-  margin-left: -110px;
-  margin-top: -1231px;
+  margin-left: 250px;
+  margin-top: 0px;
   overflow: scroll;
   border: solid;
 }
@@ -73,7 +73,6 @@ body{
 /* .theCompany:hover {
   background-color: green;
 }
-
 .theCompany:visited {
   background-color: green;
 } */
@@ -132,9 +131,3 @@ h3{
   font-size: 10pt;
   margin-top: -10px;
 }
-
-
-
-/* .box{
-  object-fit: contain;
-} */
