@@ -7,6 +7,7 @@ const NewsFeed = (props) => {
     <div>
       {props.chosenArticles && props.chosenArticles.map((article, key) =>
         <div className="newBox" key={key}>
+          <h1>{article.name}</h1>
           <a className href={article.url}>
             <img className="imageContent" src={article.urlToImage} alt="image source" />
           </a>

@@ -5,10 +5,10 @@ body{
 .optionContainer{
   padding: 20px;
   background-color:white;
-  min-height: 900px;
+  height: 900px;
   width: 900px;
   margin-left: 250px;
-  margin-top: 0px;
+  margin-top: -1235px;
   overflow: scroll;
   border: solid;
 }

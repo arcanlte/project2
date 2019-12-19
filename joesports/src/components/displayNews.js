@@ -75,7 +75,7 @@ class DisplayNews extends Component {
     const main = this.state.news;
     for (let i = 0; i < this.state.news.length - 4; i++) {
       newImage = main[i].name;
-      const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newImage}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
+      const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newImage}&apiKey=b44b40c294134b4eaab60d71b6a96391`)
       passTo = recall.data.articles.map(article =>
         article.urlToImage)
       this.setState({
@@ -85,13 +85,14 @@ class DisplayNews extends Component {
     this.setState({
       articles: ''
     })
+    console.log(this.state.news)
 
   }
 
 
 
   onChange = async (isClicked, newsSource) => {
-    const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
+    const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=b44b40c294134b4eaab60d71b6a96391`)
     const newsCopy = this.state.news.map(item => (item.name === newsSource) ?
       { ...item, isClicked: !item.isClicked } : item)
     let newName = response.data.articles[0].source.name;
@@ -155,16 +156,11 @@ class DisplayNews extends Component {
               render={(props) => {
                 return (
                   <div>
-                    {this.state.newArticleName.map(data =>
-                      <>
-                        <h1 className="main">{data}</h1>
-                        <UserProfile
-                          articles={this.state.articles}
-                          articleName={this.state.newArticleName}
-                          isLoggedIn={this.state.isLoggedIn}
-                        />
-                      </>
-                    )}
+                    <UserProfile
+                      articles={this.state.articles}
+                      articleName={this.state.newArticleName}
+                      isLoggedIn={this.state.isLoggedIn}
+                    />
                   </div>
                 )
               }} />
