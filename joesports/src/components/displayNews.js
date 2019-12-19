@@ -47,13 +47,13 @@ class DisplayNews extends Component {
         },
         {
           name: "the-wall-street-journal",
-          display: 'TheWashingtonPost',
+          display: 'The Wall Street Journal',
           image: 'https://tonyseba.com/wp-content/uploads/2014/03/The-Wall-Street-Journal-Logo-Font.jpg',
           isClicked: false
         },
         {
           name: 'the-washington-post',
-          display: 'TheWashingtonPost',
+          display: 'The Washington Post',
           image: 'https://www.logosvgpng.com/wp-content/uploads/2018/03/the-washington-post-logo-vector.png',
           isClicked: false
         },
@@ -66,7 +66,8 @@ class DisplayNews extends Component {
       ],
       articles: [],
       backgroundImages: [],
-      isLoggedIn: true
+      isLoggedIn: true,
+      newArticleName: []
     }
   }
 
@@ -84,23 +85,33 @@ class DisplayNews extends Component {
     this.setState({
       articles: ''
     })
-    console.log(main)
+
   }
 
 
 
-  onChange = async (isClicked,newsSource) => {
+  onChange = async (isClicked, newsSource) => {
     const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=ee20649b69c44ceebde93d742bf5b536`)
     const newsCopy = this.state.news.map(item => (item.name === newsSource) ?
       { ...item, isClicked: !item.isClicked } : item)
-    console.log(isClicked)
     {
-    !(isClicked) &&
+      !(isClicked) &&
+        this.setState({
+          news: newsCopy,
+          articles: [...this.state.articles, ...response.data.articles]
+        })
+      console.log(response.data.articles[0].source.name)
+      let newName = response.data.articles[0].source.name;
+      let newValue = [...this.state.newArticleName, newName]
       this.setState({
-        news: newsCopy,
-        articles: [...this.state.articles, ...response.data.articles]
+        newArticleName: newValue
       })
+
     }
+
+
+    // console.log(response.data.articles[0].source.name)
+    console.log(this.state.newArticleName)
 
     //console.log({ ...this.state.news[0].display })
   }
@@ -108,7 +119,7 @@ class DisplayNews extends Component {
   onClick = () => {
     this.setState({
       isLoggedIn: false
-      
+
     })
     console.log("I AM HEREEEE AT DISPLAY!")
   }
@@ -132,7 +143,7 @@ class DisplayNews extends Component {
                     <img
                       src={news.image}
                       className={(news.isClicked) ? "clickedCompany theCompany" : "theCompany"}
-                      onClick={() => { this.onChange(news.isClicked,news.name) }}
+                      onClick={() => { this.onChange(news.isClicked, news.name) }}
                     />
                   }
                 </div>
@@ -146,11 +157,19 @@ class DisplayNews extends Component {
               path="/userProfile"
               render={(props) => {
                 return (
-                  <UserProfile
-                    articles={this.state.articles}
-                    articleName={this.state.news.display}
-                    isLoggedIn={this.state.isLoggedIn}
-                  />
+                  <div>
+                    {this.state.newArticleName.map(data =>
+                      <>
+                        <h1 className="main">{data}</h1>
+                        {/* {data}==={this.state.news.map(value=>value.name)} */}
+                        <UserProfile
+                          articles={this.state.articles}
+                          articleName={this.state.newArticleName}
+                          isLoggedIn={this.state.isLoggedIn}
+                        />
+                      </>
+                    )}
+                  </div>
                 )
               }} />
 

@@ -3,6 +3,8 @@ import DisplayNews from './displayNews';
 import { Route } from 'react-router-dom';
 import NewsFeed from './newsfeed';
 
+
+
 class UserProfile extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,7 @@ class UserProfile extends Component {
 
 
 
+
   componentDidMount(e) {
     console.log("I AM HEREEEE!")
     const newArticle = this.props.articles;
@@ -26,6 +29,7 @@ class UserProfile extends Component {
     accessUser.chosenArticles = newArticle;
     accessUser.isLoggedIn = willBeLoggedIn;
     accessUser.articleName = displayName;
+    console.log(this.props.articleName)
     const updatedUser = { ...accessUser, chosenArticles: newArticle }
     this.setState({
       user: updatedUser
@@ -34,8 +38,9 @@ class UserProfile extends Component {
       user: { ...accessUser, articleName: displayName }
     })
     this.setState({
-      user: { ...accessUser, articleName: willBeLoggedIn }
+      user: { ...accessUser, isLoggedIn: willBeLoggedIn }
     })
+    console.log(this.state.user)
 
   }
 
@@ -44,11 +49,12 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        <NewsFeed
-          chosenArticles={this.state.user.chosenArticles}
-          articleName={this.state.user.articleName}
-          isLoggedIn={this.state.user.isLoggedIn}
-        />
+          <NewsFeed
+            chosenArticles={this.state.user.chosenArticles}
+            articleName={this.state.user.articleName}
+            isLoggedIn={this.state.user.isLoggedIn}
+          />
+       
       </div>
 
     )

@@ -9,7 +9,7 @@ body{
   height: 1300px;
   width: 900px;
   margin-left: 200px;
-  margin-top: -1431px;
+  margin-top: -1435px;
   overflow: scroll;
   border: solid;
 }
@@ -94,6 +94,10 @@ body{
   height: 200px;
 }
 
+.main{
+  color:white;
+  background-color: black;
+}
 
 
 
