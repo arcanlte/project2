@@ -7,9 +7,15 @@ const NewsFeed = (props) => {
     <div>
       {props.chosenArticles && props.chosenArticles.map((article, key) =>
         <div className="newBox" key={key}>
-          <a href={article.url}>
+          <a className href={article.url}>
             <img className="imageContent" src={article.urlToImage} alt="image source" />
           </a>
+          {/* <Link to="page"> */}
+            <span className="description">
+              <h3>"{article.title}"</h3>
+              <p className="author">-{article.author}</p>
+            </span>
+          {/* </Link> */}
           {/* <h3>{article.title}</h3>
           <p>{article.description}</p>
           <p>{article.content}</p> */}
