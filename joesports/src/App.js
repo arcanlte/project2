@@ -15,8 +15,7 @@ function App() {
       <DisplayNews />
       <main>
         <Route path="/displayNews" render={() => <DisplayNews />} />
-        <Route path="/page" render={(props) =>
-          <Page />} />
+        <Route path="/page" Component={Page} />
       </main>
     </div>
   );

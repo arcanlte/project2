@@ -2,22 +2,17 @@ import React, { Component } from 'react';
 import DisplayNews from './displayNews';
 
 class Page extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null
-    }
-  }
 
   componentDidMount(props) {
-
+    const { title } = this.props.location;
+    console.log(title)
   }
 
 
   render() {
     return (
       <div>
-
+        {this.state.title}
       </div>
     )
   }

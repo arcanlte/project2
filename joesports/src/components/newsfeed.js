@@ -8,7 +8,7 @@ const NewsFeed = (props) => {
     <div>
       {props.chosenArticles && props.chosenArticles.map((article, key) =>
         <div className="newBox" key={key}>
-          <h1>{article.name}</h1>
+          <h1>{article.source.name}</h1>
           <Link to={{
             pathname: '/page',
             state: {
