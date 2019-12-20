@@ -7,7 +7,13 @@ import Background from './components/background';
 import Footer from './components/footer'
 import UserProfile from './components/userProfile'
 import NewsFeed from './components/newsfeed';
+
 import CNN from './components/cnn';
+import TheNewYorkTimes from './components/the-new-york-times';
+import Engadget from './components/engadget';
+import CNBC from './components/cnbc';
+import AlJazeera from './components/al-jazeera-english';
+
 
 
 
