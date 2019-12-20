@@ -10,7 +10,7 @@ class Background extends Component {
     super(props);
     this.state = {
       headingImages: [],
-      news: ['cnn','espn','cnbc','the-washington-post']
+      news: ['cnn','espn','cnbc']
     }
  
   }
@@ -29,9 +29,9 @@ class Background extends Component {
   }
   render() {
     return (
-      <div className="header">
+      <div className="backgroundImg">
         {this.state.headingImages.map(images =>
-          <><img className="headerImages" src={images} /></>)}
+          <><img className="backgroundImages" src={images} /></>)}
         <Link to="/displayNews">
           JOE HEADLINES
       </Link>
