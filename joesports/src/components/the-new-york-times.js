@@ -19,13 +19,7 @@ class TheNewYorkTimes extends Component {
 
   render() {
     return (
-      <div>
-        <DisplayNews />
-        {this.state.articles.map(articles =>
-          <>
-            {articles.title}
-          </>)}
-      </div>
+      https://www.logodesignlove.com/wp-content/uploads/2010/06/cnn-logo-white-on-red.jpg
     )
   }
 }

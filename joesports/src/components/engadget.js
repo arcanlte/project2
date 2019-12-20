@@ -21,10 +21,18 @@ class Engadget extends Component {
     return (
       <div>
         <DisplayNews />
+        <img className="banner" src="http://icons.iconarchive.com/icons/martz90/hex/512/engadget-icon.png" />
         {this.state.articles.map(articles =>
-          <>
-            {articles.title}
-          </>)}
+          <div className="newsgroup">
+            <div className="row">
+              <img className="imageSource" src={articles.urlToImage} />
+              <h4>{articles.content}</h4>
+            </div>
+            <div className="column">
+              <p>"{articles.description}"</p>
+              <p>-{articles.author}</p>
+            </div>
+          </div>)}
       </div>
     )
   }

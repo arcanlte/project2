@@ -18,11 +18,11 @@ class AlJazeera extends Component {
 
   render() {
     return (
-      <div className="newsgroup">
+      <div>
         <DisplayNews />
         <img className="banner" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Aljazeera_eng.svg/1200px-Aljazeera_eng.svg.png" />
         {this.state.articles.map(articles =>
-          <div>
+          <div className="newsgroup">
             <div className="row">
               <img className="imageSource" src={articles.urlToImage} />
               <h4>{articles.content}</h4>

@@ -21,10 +21,18 @@ class CNN extends Component {
     return (
       <div>
         <DisplayNews />
+        <img className="banner" src="https://www.logodesignlove.com/wp-content/uploads/2010/06/cnn-logo-white-on-red.jpg" />
         {this.state.articles.map(articles =>
-          <>
-            {articles.title}
-          </>)}
+          <div className="newsgroup">
+            <div className="row">
+              <img className="imageSource" src={articles.urlToImage} />
+              <h4>{articles.content}</h4>
+            </div>
+            <div className="column">
+              <p>"{articles.description}"</p>
+              <p>-{articles.author}</p>
+            </div>
+          </div>)}
       </div>
     )
   }

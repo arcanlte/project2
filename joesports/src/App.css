@@ -224,6 +224,10 @@ p{
   width: 90%;
   padding: -10px;
 }
+
+.newsgroup{
+  padding-bottom: 20px;
+}
 span{
   text-align: center;
   margin-right: 0px;

@@ -19,11 +19,11 @@ class CNBC extends Component {
 
   render() {
     return (
-      <div className="newsgroup">
+      <div>
       <DisplayNews />
       <img className="banner" src="https://www.udelv.com/wp-content/uploads/2018/01/logo-cnbc.png" />
       {this.state.articles.map(articles =>
-        <div>
+        <div className="newsgroup">
           <div className="row">
             <img className="imageSource" src={articles.urlToImage} />
             <h4>{articles.content}</h4>
