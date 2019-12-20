@@ -117,7 +117,11 @@ class DisplayNews extends Component {
       <div className="optionContainer">
 
         <div className="boxContainer">
+          <Link to="/the-new-york-times">The New York Times</Link>
           <Link to="/cnn">CNN</Link>
+          <Link to="/engadget">ENGADGET</Link>
+          <Link to="/cnbc">CNBC</Link>
+          <Link to="/al-jazeera-english">AlJazeera</Link>
           {/*     
           </div>
           onSubmit={this.onSubmit}>
