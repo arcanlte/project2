@@ -19,13 +19,21 @@ class CNBC extends Component {
 
   render() {
     return (
-      <div>
-        <DisplayNews />
-        {this.state.articles.map(articles =>
-          <>
-            {articles.title}
-          </>)}
-      </div>
+      <div className="newsgroup">
+      <DisplayNews />
+      <img className="banner" src="https://www.udelv.com/wp-content/uploads/2018/01/logo-cnbc.png" />
+      {this.state.articles.map(articles =>
+        <div>
+          <div className="row">
+            <img className="imageSource" src={articles.urlToImage} />
+            <h4>{articles.content}</h4>
+          </div>
+          <div className="column">
+            <p>"{articles.description}"</p>
+            <p>-{articles.author}</p>
+          </div>
+        </div>)}
+    </div>
     )
   }
 }
