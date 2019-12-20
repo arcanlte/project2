@@ -85,61 +85,17 @@ class DisplayNews extends Component {
     console.log(this.state.user)
 
   }
-  onChange = async (isClicked, newsSource) => {
-    const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=b44b40c294134b4eaab60d71b6a96391`)
-    const newsCopy = this.state.news.map(item => (item.name === newsSource) ?
-      { ...item, isClicked: !item.isClicked } : item)
-    let newName = response.data.articles[0].source.name;
-    let newValue = [...this.state.newArticleName, newName]
-    {
-      !(isClicked) &&
-        this.setState({
-          news: newsCopy,
-          articles: [...this.state.articles, ...response.data.articles],
-          newArticleName: newValue
-        })
-    }
-  }
-
-  onClick = () => {
-    this.setState({
-      isLoggedIn: false
-
-    })
-
-  }
-
 
 
 
   render() {
     return (
-      <div className="optionContainer">
-
-        <div className="boxContainer">
-          <Link to="/the-new-york-times">The New York Times</Link>
-          <Link to="/cnn">CNN</Link>
-          <Link to="/engadget">ENGADGET</Link>
-          <Link to="/cnbc">CNBC</Link>
-          <Link to="/al-jazeera-english">AlJazeera</Link>
-          {/*     
-          </div>
-          onSubmit={this.onSubmit}>
-          
-              <div className="box" >
-                {this.state.isLoggedIn &&
-                  <button
-                    className={(news.isClicked) ? "clickedCompany theCompany" : "theCompany"}
-                  onClick={() => { this.onChange(news.isClicked, news.name) }}>{news.name}</button>}
-              </div>
-       
-
-        <NewsFeed
-          articles={this.state.articles}
-          articleName={this.state.newArticleName}
-          isLoggedIn={this.state.isLoggedIn}
-        /> */}
-        </div>
+      <div className="boxContainer">
+        <Link to="/the-new-york-times">The New York Times</Link>
+        <Link to="/cnn">CNN</Link>
+        <Link to="/engadget">ENGADGET</Link>
+        <Link to="/cnbc">CNBC</Link>
+        <Link to="/al-jazeera-english">AlJazeera</Link>
       </div>
     )
   }
@@ -148,16 +104,3 @@ class DisplayNews extends Component {
 export default DisplayNews;
 
 
-{/* <Route
-            path="/userProfile"
-            render={(props) => {
-              return (
-                <div>
-                  <UserProfile
-                    articles={this.state.articles}
-                    articleName={this.state.newArticleName}
-                    isLoggedIn={this.state.isLoggedIn}
-                  />
-                </div>
-              )
-            }} /> */}

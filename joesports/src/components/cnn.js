@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { render } from '@testing-library/react';
+import DisplayNews from './displayNews';
 import axios from 'axios';
 
 class CNN extends Component {
@@ -20,6 +20,7 @@ class CNN extends Component {
   render() {
     return (
       <div>
+        <DisplayNews />
         {this.state.articles.map(articles =>
           <>
             {articles.title}

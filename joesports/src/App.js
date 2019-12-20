@@ -21,17 +21,15 @@ function App() {
 
   return (
     <div className="app">
-      <CNN />
       <Header />
       <Background />
-      <main>
-        <Route exact path="/" render={() => <DisplayNews />} />
+      <Route exact path="/" render={() => <DisplayNews />} />
+      <main className="optionContainer">
         <Route exact path="/the-new-york-times" render={() => <TheNewYorkTimes />} />
         <Route exact path="/cnn" render={() => <CNN />} />
         <Route exact path="/engadget" render={() => <Engadget />} />
         <Route exact path="/cnbc" render={() => <CNBC />} />
         <Route exact path="/al-jazeera-english" render={() => <AlJazeera />} />
-
       </main>
       <Footer />
     </div>
