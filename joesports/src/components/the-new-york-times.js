@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import DisplayNews from './displayNews'
 
 class TheNewYorkTimes extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class TheNewYorkTimes extends Component {
   render() {
     return (
       <div>
+        <DisplayNews />
         {this.state.articles.map(articles =>
           <>
             {articles.title}

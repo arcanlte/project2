@@ -23,8 +23,9 @@ function App() {
     <div className="app">
       <Header />
       <Background />
-      <Route exact path="/" render={() => <DisplayNews />} />
+    
       <main className="optionContainer">
+      <Route exact path="/" render={() => <CNN />} />
         <Route exact path="/the-new-york-times" render={() => <TheNewYorkTimes />} />
         <Route exact path="/cnn" render={() => <CNN />} />
         <Route exact path="/engadget" render={() => <Engadget />} />

@@ -91,11 +91,11 @@ class DisplayNews extends Component {
   render() {
     return (
       <div className="boxContainer">
-        <Link to="/the-new-york-times">The New York Times</Link>
-        <Link to="/cnn">CNN</Link>
-        <Link to="/engadget">ENGADGET</Link>
-        <Link to="/cnbc">CNBC</Link>
-        <Link to="/al-jazeera-english">AlJazeera</Link>
+        <Link to="/cnn"><span className="cnn">CNN</span></Link>
+        <Link to="/engadget"><span className="engadget">ENGADGET</span></Link>
+        <Link to="/cnbc"><span className="cnbc">CNBC</span></Link>
+        <Link to="/al-jazeera-english"><span className="aljazeera">AlJazeera</span></Link>
+        <Link to="/the-new-york-times"><span className="thenewyorktimes">The New York Times</span></Link>
       </div>
     )
   }

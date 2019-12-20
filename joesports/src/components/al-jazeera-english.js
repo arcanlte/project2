@@ -18,12 +18,20 @@ class AlJazeera extends Component {
 
   render() {
     return (
-      <div>
+      <div className="newsgroup">
         <DisplayNews />
+        <img className="banner" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Aljazeera_eng.svg/1200px-Aljazeera_eng.svg.png" />
         {this.state.articles.map(articles =>
-          <>
-            {articles.title}
-          </>)}
+          <div>
+            <div className="row">
+              <img className="imageSource" src={articles.urlToImage} />
+              <h4>{articles.content}</h4>
+            </div>
+            <div className="column">
+              <p>"{articles.description}"</p>
+              <p>-{articles.author}</p>
+            </div>
+          </div>)}
       </div>
     )
   }

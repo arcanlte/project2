@@ -1,23 +1,7 @@
 body{
   background-color: rgba(0,0,0);
 }
-.optionContainer{
-  padding: 20px;
-  background-color:white;
-  height: 700px;
-  width: 900px;
-  margin-left: 250px;
-  margin-top: -120px;
-  overflow: scroll;
-  border: solid;
-  border-top: none;
-}
 
-.boxContainer{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  align-content: baseline;
-}
 
 .contentContained{
   display: grid;
@@ -176,4 +160,93 @@ a{
 
 p{
   margin-left: 140px;
+}
+
+
+
+
+
+
+
+
+
+
+.optionContainer{
+  padding: 20px;
+  background-color:white;
+  height: 900px;
+  width: 900px;
+  margin-left: 250px;
+  margin-top: -120px;
+  overflow: scroll;
+  border: solid;
+  border-top: none;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.boxContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+  align-content: baseline;
+  margin-top: -20px;
+  letter-spacing: 2px;
+  background-color: gray;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+}
+
+.imageSource{
+  height: 110%;
+  width: 80%;
+}
+
+.banner{
+  justify-content: center;
+  margin-left: 90px;
+  height: 20vh;
+  width: 35vw;
+  padding: 50px 20px;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.column{
+  margin-top:-90px;
+  color: white;
+  margin-left: -80px;
+  width: 90%;
+  padding: -10px;
+}
+span{
+  text-align: center;
+  margin-right: 0px;
+  font-size: 12pt;
+  
+}
+
+.engadget{
+
+}
+
+.cnn{
+
+}
+
+.cnbc{
+
+}
+
+.aljazeera{
+
+}
+
+.thenewyorktimes{
+
 }
