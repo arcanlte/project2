@@ -19,7 +19,21 @@ class TheNewYorkTimes extends Component {
 
   render() {
     return (
-      https://www.logodesignlove.com/wp-content/uploads/2010/06/cnn-logo-white-on-red.jpg
+      <div>
+        <DisplayNews />
+        <img className="banner" src="http://www.barbaraprey.com/wp/wp-content/uploads/2011/12/The-New-York-Times-icon.png" />
+        {this.state.articles.map(articles =>
+          <div className="newsgroup">
+            <div className="row">
+              <img className="imageSource" src={articles.urlToImage} />
+              <h4>{articles.content}</h4>
+            </div>
+            <div className="column">
+              <p>"{articles.description}"</p>
+              <p>-{articles.author}</p>
+            </div>
+          </div>)}
+      </div>
     )
   }
 }
