@@ -32,9 +32,6 @@ class Background extends Component {
       <div className="backgroundImg">
         {this.state.headingImages.map(images =>
           <><img className="backgroundImages" src={images} /></>)}
-        <Link to="/displayNews">
-          JOE HEADLINES
-      </Link>
       </div>
     )
   }
