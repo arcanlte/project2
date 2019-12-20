@@ -12,10 +12,11 @@ function App() {
   return (
     <div className="app">
       <Header />
+      <Route path="/page" Component={Page} />
       <DisplayNews />
       <main>
-        <Route path="/displayNews" render={() => <DisplayNews />} />
-        <Route path="/page" Component={Page} />
+        <Route exact path="/displayNews" render={() => <DisplayNews />} />
+
       </main>
     </div>
   );

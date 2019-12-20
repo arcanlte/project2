@@ -127,9 +127,6 @@ class DisplayNews extends Component {
 
   render() {
     return (
-      <div className="newsBackground">
-        {/* {this.state.backgroundImages.map(image =>
-          <img className="backgroundImage" src={image} />)} */}
         <div className="optionContainer">
           <form
             className={(this.state.isLoggedIn) ? "boxContainer" : "contentContained"}
@@ -167,7 +164,6 @@ class DisplayNews extends Component {
 
           </form>
         </div>
-      </div>
     )
   }
 }

@@ -12,7 +12,8 @@ class Page extends Component {
   render() {
     return (
       <div>
-        {this.state.title}
+        <h1>test</h1>
+        {this.props.location}
       </div>
     )
   }
