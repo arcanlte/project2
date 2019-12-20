@@ -21,19 +21,6 @@ class Header extends Component {
         <Link to="/displayNews">
           JOE HEADLINES
         </Link>
-        <Route
-          path="/displayNews"
-          render={
-            () => {
-              return (
-                <DisplayNews
-                  value={this.state.value} />
-              )
-            }
-          }
-        />
-
-
       </div>
     )
   }
