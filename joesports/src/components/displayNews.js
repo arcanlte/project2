@@ -3,8 +3,7 @@ import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import UserProfile from './userProfile';
 import './../App.css';
-import Background from './background';
-import Header from './header';
+import Header from './background'
 
 let newImage = 0;
 let passTo = [];
@@ -71,25 +70,6 @@ class DisplayNews extends Component {
     }
   }
 
-  async componentDidMount() {
-    const main = this.state.news;
-    for (let i = 0; i < this.state.news.length - 4; i++) {
-      newImage = main[i].name;
-      const recall = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newImage}&apiKey=b44b40c294134b4eaab60d71b6a96391`)
-      passTo = recall.data.articles.map(article =>
-        article.urlToImage)
-      this.setState({
-        backgroundImages: [...this.state.backgroundImages, ...passTo]
-      })
-    }
-    this.setState({
-      articles: ''
-    })
-    console.log(this.state.news)
-
-  }
-
-
 
   onChange = async (isClicked, newsSource) => {
     const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=b44b40c294134b4eaab60d71b6a96391`)
@@ -104,13 +84,6 @@ class DisplayNews extends Component {
           articles: [...this.state.articles, ...response.data.articles],
           newArticleName: newValue
         })
-      console.log(response.data.articles[0].source.name)
-
-
-      // console.log(response.data.articles[0].source.name)
-      console.log(this.state.newArticleName)
-
-      //console.log({ ...this.state.news[0].display })
     }
   }
 
@@ -127,43 +100,42 @@ class DisplayNews extends Component {
 
   render() {
     return (
-        <div className="optionContainer">
-          <form
-            className={(this.state.isLoggedIn) ? "boxContainer" : "contentContained"}
-            onSubmit={this.onSubmit}>
-            {this.state.news.map(
-              news =>
-                <div className="box" >
-                  {this.state.isLoggedIn &&
-                    <img
-                      src={news.image}
-                      className={(news.isClicked) ? "clickedCompany theCompany" : "theCompany"}
-                      onClick={() => { this.onChange(news.isClicked, news.name) }}
-                    />
-                  }
+      <div className="optionContainer">
+        <form
+          className={(this.state.isLoggedIn) ? "boxContainer" : "contentContained"}
+          onSubmit={this.onSubmit}>
+          {this.state.news.map(
+            news =>
+              <div className="box" >
+                {this.state.isLoggedIn &&
+                  <img
+                    src={news.image}
+                    className={(news.isClicked) ? "clickedCompany theCompany" : "theCompany"}
+                    onClick={() => { this.onChange(news.isClicked, news.name) }}
+                  />
+                }
+              </div>
+          )}
+          <Link to="/userProfile">
+            {this.state.isLoggedIn && <button id="done" onClick={() => { this.onClick() }}>DONE</button>
+            }
+          </Link>
+          <Route
+            path="/userProfile"
+            render={(props) => {
+              return (
+                <div>
+                  <UserProfile
+                    articles={this.state.articles}
+                    articleName={this.state.newArticleName}
+                    isLoggedIn={this.state.isLoggedIn}
+                  />
                 </div>
-            )}
-            <Link to="/userProfile">
-              {this.state.isLoggedIn &&
-                <button id="done" onClick={() => { this.onClick() }}>DONE</button>
-              }
-            </Link>
-            <Route
-              path="/userProfile"
-              render={(props) => {
-                return (
-                  <div>
-                    <UserProfile
-                      articles={this.state.articles}
-                      articleName={this.state.newArticleName}
-                      isLoggedIn={this.state.isLoggedIn}
-                    />
-                  </div>
-                )
-              }} />
+              )
+            }} />
 
-          </form>
-        </div>
+        </form>
+      </div>
     )
   }
 }
