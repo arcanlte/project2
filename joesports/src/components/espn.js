@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DisplayNews from './displayNews'
 
-class TheNewYorkTimes extends Component {
+class ESPN extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +10,7 @@ class TheNewYorkTimes extends Component {
     }
   }
   async componentDidMount() {
-    const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=the-new-york-times&apiKey=b44b40c294134b4eaab60d71b6a96391`)
+    const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=espn&apiKey=b44b40c294134b4eaab60d71b6a96391`)
 
     this.setState({
       articles: [...this.state.articles, ...response.data.articles]
@@ -21,7 +21,7 @@ class TheNewYorkTimes extends Component {
     return (
       <div>
         <DisplayNews />
-        <img className="banner" src="http://www.barbaraprey.com/wp/wp-content/uploads/2011/12/The-New-York-Times-icon.png" />
+        <img className="banner" src="https://www.multichannel.com/.image/t_share/MTU0MDYzNjQ2MzI1NzQ0NzIy/espn-logojpg.jpg" />
         {this.state.articles.map(articles =>
           <div className="newsgroup">
             <div className="row">
@@ -38,4 +38,4 @@ class TheNewYorkTimes extends Component {
   }
 }
 
-export default TheNewYorkTimes;
+export default ESPN;
