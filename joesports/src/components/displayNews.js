@@ -3,10 +3,8 @@ import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import UserProfile from './userProfile';
 import './../App.css';
-import Header from './background'
+import NewsFeed from './newsfeed';
 
-let newImage = 0;
-let passTo = [];
 
 class DisplayNews extends Component {
   constructor(props) {
@@ -63,6 +61,11 @@ class DisplayNews extends Component {
           isClicked: false
         }
       ],
+      user: [{
+        articleName: [],
+        chosenArticles: [],
+        isLoggedIn: ''
+      }],
       articles: [],
       backgroundImages: [],
       isLoggedIn: true,
@@ -71,6 +74,29 @@ class DisplayNews extends Component {
   }
 
 
+  componentDidMount(e) {
+    console.log("I AM HEREEEE!")
+    const newArticle = this.state.articles;
+    const displayName = this.state.newArticleName;
+    const willBeLoggedIn = this.state.isLoggedIn
+    const accessUser = this.state.user;
+    accessUser.chosenArticles = newArticle;
+    accessUser.isLoggedIn = willBeLoggedIn;
+    accessUser.articleName = displayName;
+    console.log(this.props.articleName)
+    const updatedUser = { ...accessUser, chosenArticles: newArticle }
+    this.setState({
+      user: updatedUser
+    })
+    this.setState({
+      user: { ...accessUser, articleName: displayName }
+    })
+    this.setState({
+      user: { ...accessUser, isLoggedIn: willBeLoggedIn }
+    })
+    console.log(this.state.user)
+
+  }
   onChange = async (isClicked, newsSource) => {
     const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=${newsSource}&apiKey=b44b40c294134b4eaab60d71b6a96391`)
     const newsCopy = this.state.news.map(item => (item.name === newsSource) ?
@@ -92,7 +118,7 @@ class DisplayNews extends Component {
       isLoggedIn: false
 
     })
-    console.log("I AM HEREEEE AT DISPLAY!")
+
   }
 
 
@@ -116,11 +142,21 @@ class DisplayNews extends Component {
                 }
               </div>
           )}
-          <Link to="/userProfile">
-            {this.state.isLoggedIn && <button id="done" onClick={() => { this.onClick() }}>DONE</button>
-            }
-          </Link>
-          <Route
+        </form>
+        <NewsFeed
+                  articles={this.state.articles}
+                  articleName={this.state.newArticleName}
+                  isLoggedIn={this.state.isLoggedIn}
+                />
+      </div>
+    )
+  }
+}
+
+export default DisplayNews;
+
+
+{/* <Route
             path="/userProfile"
             render={(props) => {
               return (
@@ -132,12 +168,4 @@ class DisplayNews extends Component {
                   />
                 </div>
               )
-            }} />
-
-        </form>
-      </div>
-    )
-  }
-}
-
-export default DisplayNews;
+            }} /> */}

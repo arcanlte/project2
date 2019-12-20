@@ -19,7 +19,6 @@ class UserProfile extends Component {
 
 
 
-
   componentDidMount(e) {
     console.log("I AM HEREEEE!")
     const newArticle = this.props.articles;
@@ -47,6 +46,7 @@ class UserProfile extends Component {
 
 
   render() {
+    
     return (
       <div>
           <NewsFeed
@@ -54,7 +54,6 @@ class UserProfile extends Component {
             articleName={this.state.user.articleName}
             isLoggedIn={this.state.user.isLoggedIn}
           />
-       
       </div>
 
     )

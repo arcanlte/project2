@@ -5,6 +5,9 @@ import './App.css';
 import Header from './components/header';
 import Background from './components/background';
 import Footer from './components/footer'
+import UserProfile from './components/userProfile'
+import NewsFeed from './components/newsfeed';
+import CNN from './components/cnn';
 
 
 
@@ -12,12 +15,11 @@ function App() {
 
   return (
     <div className="app">
+      <CNN />
       <Header />
       <Background />
-
-      <DisplayNews />
       <main>
-        <Route exact path="/displayNews" render={() => <DisplayNews />} />
+        <Route exact path="/" render={() => <DisplayNews />} />
       </main>
       <Footer />
     </div>
