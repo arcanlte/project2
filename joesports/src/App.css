@@ -15,8 +15,7 @@ body{
 
 .boxContainer{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 0px 0px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   align-content: baseline;
 }
 
@@ -31,8 +30,8 @@ body{
 .theCompany{
   align-self: center;
   padding-top: 20px;
-  height: 160px;
-  width: 400px;
+  height: 50%;
+  width: 50%;
   cursor: pointer;
 }
 

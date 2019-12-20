@@ -20,6 +20,7 @@ function App() {
       <Background />
       <main>
         <Route exact path="/" render={() => <DisplayNews />} />
+        <Route exact path="/cnn" render={() => <CNN />} />
       </main>
       <Footer />
     </div>

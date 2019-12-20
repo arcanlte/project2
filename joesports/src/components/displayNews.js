@@ -43,18 +43,6 @@ class DisplayNews extends Component {
           isClicked: false
         },
         {
-          name: "the-wall-street-journal",
-          display: 'The Wall Street Journal',
-          image: 'https://tonyseba.com/wp-content/uploads/2014/03/The-Wall-Street-Journal-Logo-Font.jpg',
-          isClicked: false
-        },
-        {
-          name: 'the-washington-post',
-          display: 'The Washington Post',
-          image: 'https://www.logosvgpng.com/wp-content/uploads/2018/03/the-washington-post-logo-vector.png',
-          isClicked: false
-        },
-        {
           name: 'al-jazeera-english',
           display: 'AlJazeera',
           image: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Aljazeera_eng.svg/1200px-Aljazeera_eng.svg.png',
@@ -127,27 +115,27 @@ class DisplayNews extends Component {
   render() {
     return (
       <div className="optionContainer">
-        <form
-          className={(this.state.isLoggedIn) ? "boxContainer" : "contentContained"}
+
+        <div className="boxContainer">
+          <Link to="/cnn">CNN</Link>
+          {/*     
+          </div>
           onSubmit={this.onSubmit}>
-          {this.state.news.map(
-            news =>
+          
               <div className="box" >
                 {this.state.isLoggedIn &&
-                  <img
-                    src={news.image}
+                  <button
                     className={(news.isClicked) ? "clickedCompany theCompany" : "theCompany"}
-                    onClick={() => { this.onChange(news.isClicked, news.name) }}
-                  />
-                }
+                  onClick={() => { this.onChange(news.isClicked, news.name) }}>{news.name}</button>}
               </div>
-          )}
-        </form>
+       
+
         <NewsFeed
-                  articles={this.state.articles}
-                  articleName={this.state.newArticleName}
-                  isLoggedIn={this.state.isLoggedIn}
-                />
+          articles={this.state.articles}
+          articleName={this.state.newArticleName}
+          isLoggedIn={this.state.isLoggedIn}
+        /> */}
+        </div>
       </div>
     )
   }
